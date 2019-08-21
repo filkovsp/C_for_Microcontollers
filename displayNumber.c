@@ -1,30 +1,26 @@
 /*
 	This code, when compiled and uploaded into ATmega8 microcontroller will count from 0 to 20.
 	Given that 7-Segment LED indicator connected to PORTD of the microcontroller:
-	  G  F  A/K  A  B
-	 _|__|___|___|__|_
-	|                 |
-	|    --- A ---    |
-	|   |         |   |
-	|   F         B   |
-	|   |         |   |
-	|     -- G --     |
-	|   |         |   |
-	|   E         C   |
-	|   |         |   |
-	|    --- D --- dp |
-	|_________________|
-	  |  |   |   |  |
-	  E  D  A/K  C  dp
+
+	 _________________            __________________
+	|                 |          |    |             |
+	|    --- A ---    |--A-------|PD0 |  ATmega8    |
+	|   |         |   |--B-------|PD1 |             |
+	|   F         B   |--C-------|PD2 |             |
+	|   |         |   |--D-------|PD3 |             |
+	|     -- G --     |--E-------|PD4 |             |
+	|   |         |   |--F-------|PD5 |             |
+	|   E         C   |--G-------|PD6 |             |
+	|   |         |   |-(dp)-----|PD7 |             |
+	|    --- D --- dp |          |    |  VCC    GND |
+	|_________________|          |____|_____________|   
+	         |                            |      |      .--> GND
+	        C/C                           |     _|_    _|_
+                 |             1k             |              
+                 `-----------/\/\/\-----------`----------------> VCC
 	
-	A -> PD0
-	B -> PD1
-	C -> PD2
-	D -> PD3
-	E -> PD4
-	F -> PD5
-	G -> PD6
-	dp -> PD7 (optional)
+	C/C = Common Cathode
+	(dp) -> PD7 (optional)
 	
 	Multi-digit number will be displayed as series of N=precision numbers with short pause between them.
 	Precision is the number of digits with leading zeros we want our counter (from 0 to 20) to be represented.
