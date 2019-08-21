@@ -1,11 +1,12 @@
 #define F_CPU 8000000  // Hz
 #include <avr/io.h>
-#include <math.h> // usage of pow() function from here
+#include <math.h> // usage of pow() function
 #include <util/delay.h>
+#include <stdlib.h>
 
 // #define nop() {asm("nop");}
 
-const uint8_t precision = 2;
+const uint8_t precision = 3;
 
 const uint8_t digits[] = {
 	0b00111111, // 0
@@ -53,8 +54,10 @@ void numberToArray(uint8_t number, uint8_t* n) {
 }
 
 void displayNumber(uint8_t number) {
-	uint8_t n[precision];
-	numberToArray(number, (uint8_t*)&n);
+	
+	uint8_t* n = (uint8_t*)malloc(precision * sizeof(uint8_t));
+	
+	numberToArray(number, n);
 	for (uint8_t i = 0; i < precision; ++i) {
 		PORTD = ~(digits[n[i]]);
 		_delay_ms(250);
@@ -63,7 +66,10 @@ void displayNumber(uint8_t number) {
 	}
 	PORTD = ~(0);
 	_delay_ms(700);
-	// delete[] n;
+	
+	free(n);
+	// malloc()/free() is the same as new()/delete()
+	// this requires #include <stdlib.h>
 }
 
 void display1DNumber(uint8_t number) {
@@ -75,7 +81,6 @@ void display1DNumber(uint8_t number) {
 
 
 int main(void) {
-	// anable port output mode, pullup HIGH
 	DDRD = 0xff;
 	
 	while (1) {
