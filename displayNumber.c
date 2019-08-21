@@ -38,7 +38,7 @@
 // parameter for conversion a number into an array, sets length of the array.
 const uint8_t precision = 3;
 
-// byte-codes for a digits to be displayed at the connected to the according PORT of the microcontroller.
+// byte-codes for [0-9] digits to be displayed at the 7-Segment Display, connected to the microcontroller's PORT.
 const uint8_t digits[] = {
 	0b00111111, // 0
 	0b00000110, // 1
