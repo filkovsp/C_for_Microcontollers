@@ -91,7 +91,7 @@ void displayNumber(uint8_t number) {
 /* 
 	Displays single-digit numbers [0-9]:
  */
-void displayOneDigitDNumber(uint8_t number) {
+void displayOneDigitNumber(uint8_t number) {
 	PORTD = ~(digits[number]);
 	_delay_ms(250);
 	PORTD = ~(0);
@@ -104,7 +104,7 @@ int main(void) {
 	
 	while (1) {
 		for (int i = 0; i<20; i++) {
-			// displayOneDigitDNumber(i);
+			// displayOneDigitNumber(i);
 			displayNumber(i);
 		}
 	}
