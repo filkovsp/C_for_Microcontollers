@@ -1,3 +1,36 @@
+/*
+	This code, when compiled and uploaded into ATmega8 microcontroller will count from 0 to 20.
+	Given that 7-Segment LED indicator connected to PORTD of the microcontroller:
+	  G  F  A/K  A  B
+	 _|__|___|___|__|_
+	|                 |
+	|    --- A ---    |
+	|   |         |   |
+	|   F         B   |
+	|   |         |   |
+	|     -- G --     |
+	|   |         |   |
+	|   E         C   |
+	|   |         |   |
+	|    --- D --- dp |
+	|_________________|
+	  |  |   |   |  |
+	  E  D  A/K  C  dp
+	
+	A -> PD0
+	B -> PD1
+	C -> PD2
+	D -> PD3
+	E -> PD4
+	F -> PD5
+	G -> PD6
+	dp -> PD7 (optional)
+	
+	Multi-digit number will be displayed as series of N=precision numbers with short pause between them.
+	Precision is the number of digits with leading zeros we want our counter (from 0 to 20) to be represented.
+	If precision = 3 then "9" will be reflected at the display as the series:
+	"0" + pause(50 msec) + "0" + pause(50 msec) + "9", eash number shows up and being displayed for 250 msec.
+ */
 #define F_CPU 8000000  // Hz
 #include <avr/io.h>
 #include <util/delay.h>
