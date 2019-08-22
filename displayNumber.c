@@ -22,10 +22,16 @@
 	C/C = Common Cathode
 	(dp) -> PD7 (optional)
 	
+	Resistor 1k is shown here connected to C/C just for simplisity. 
+	In fact there must 8 resistors nominal from 330 to 1k between LED's [A-G,dp] and [PD0-PD7].
+	And then LED's C/C connected to VCC directly.
+	
 	Multi-digit number will be displayed as series of N=precision numbers with short pause between them.
 	Precision is the number of digits with leading zeros we want our counter (from 0 to 20) to be represented.
 	If precision = 3 then "9" will be reflected at the display as the series:
 	"0" + pause(50 msec) + "0" + pause(50 msec) + "9", eash number shows up and being displayed for 250 msec.
+
+
  */
 #define F_CPU 8000000  // Hz
 #include <avr/io.h>
