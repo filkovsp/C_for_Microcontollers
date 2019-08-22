@@ -17,7 +17,7 @@
 	         |                            |      |      .--> GND
 	        C/C                           |     _|_    _|_
                  |             1k             |              
-                 `-----------/\/\/\-----------`----------------> VCC
+	         `-----------/\/\/\-----------`----------------> VCC
 	
 	C/C = Common Cathode
 	(dp) -> PD7 (optional)
@@ -97,7 +97,7 @@ uint8_t* numberToArray(uint8_t number) {
 		// mod = nm % (uint8_t)pow(10, length(nm) - 1);
 		// n[precision - length(number) + i] = (nm - mod) / denumerator;
 
-		n[precision - length(number) + i] = 
+		n[precision - length(number) + i] = (uint8_t)
 			( number % (uint8_t)pow(10, length(number) - i) ) / 
 				   (uint8_t)pow(10, length(number) - i - 1);
 	}
