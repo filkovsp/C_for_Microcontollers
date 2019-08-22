@@ -23,7 +23,7 @@
 	(dp) -> PD7 (optional)
 	
 	Resistor 1k is shown here connected to C/C just for simplisity. 
-	In fact there must 8 resistors nominal from 330 to 1k between LED's [A-G,dp] and [PD0-PD7].
+	In fact there must be 8 resistors nominal from 330 to 1k between LED's [A-G,dp] and [PD0-PD6,PD7].
 	And then LED's C/C connected to VCC directly.
 	
 	Multi-digit number will be displayed as series of N=precision numbers with short pause between them.
