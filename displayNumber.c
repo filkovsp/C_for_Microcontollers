@@ -99,7 +99,7 @@ uint8_t* numberToArray(uint8_t number) {
 
 		n[precision - length(number) + i] = 
 			( number % (uint8_t)pow(10, length(number) - i) ) / 
-				   (uint8_t)pow(10, length(number) - i);
+				   (uint8_t)pow(10, length(number) - i - 1);
 	}
 	
 	return n;
