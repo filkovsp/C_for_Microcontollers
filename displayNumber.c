@@ -89,13 +89,17 @@ uint8_t* numberToArray(uint8_t number) {
 		}
 	}
 
-	uint8_t denumerator, mod, nm;
+	// uint8_t denumerator, mod, nm;
 
 	for (uint8_t i = 0; i < length(number); i++) {
-		nm = number % (uint8_t)pow(10, length(number) - i);
-		denumerator = (uint8_t)pow(10, length(nm) - 1);
-		mod = nm % (uint8_t)pow(10, length(nm) - 1);
-		n[precision - length(number) + i] = (nm - mod) / denumerator;
+		// nm = number % (uint8_t)pow(10, length(number) - i);
+		// denumerator = (uint8_t)pow(10, length(nm) - 1);
+		// mod = nm % (uint8_t)pow(10, length(nm) - 1);
+		// n[precision - length(number) + i] = (nm - mod) / denumerator;
+
+		n[precision - length(number) + i] = 
+			( number % (uint8_t)pow(10, length(number) - i) ) / 
+				   (uint8_t)pow(10, length(number) - i);
 	}
 	
 	return n;
